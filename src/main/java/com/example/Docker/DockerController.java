@@ -16,11 +16,6 @@ public class DockerController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/")
-    public String home(){
-        return "hi";
-    }
-
     @GetMapping("/allUsers")
     public List<User> getAllUsers(){
         return (List<User>) userRepository.findAll();
@@ -35,7 +30,5 @@ public class DockerController {
     public String tests(){
         return "test";
     }
-
-
 }
 

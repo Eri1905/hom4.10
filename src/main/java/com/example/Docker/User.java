@@ -36,4 +36,10 @@ public class User {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public User(Integer id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 }
