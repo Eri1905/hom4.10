@@ -10,9 +10,11 @@ import java.util.List;
 
 @RestController
 public class DockerController {
-
     @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
+    private DockerController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @GetMapping("/")
     public String home(){
@@ -34,4 +36,6 @@ public class DockerController {
         return "test";
     }
 
+
 }
+
