@@ -3,6 +3,8 @@ package com.example.Docker;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -12,10 +14,10 @@ public class User {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotEmpty(message = "Name is mandatory")
     private String name;
 
-    @Min(value = 0, message = "Age should not be less than 0")
+    @Min(0)
     private int age;
 
     public User() {
