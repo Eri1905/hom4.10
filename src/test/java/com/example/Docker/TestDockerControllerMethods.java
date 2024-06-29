@@ -9,7 +9,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -80,6 +79,7 @@ public class TestDockerControllerMethods {
     }
 
 
+
     @Test
     void testGetAllUsers_noUsers() throws Exception {
         when(userRepository.findAll()).thenReturn(Arrays.asList());
@@ -95,4 +95,6 @@ public class TestDockerControllerMethods {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").value("test"));
     }
+
+
 }

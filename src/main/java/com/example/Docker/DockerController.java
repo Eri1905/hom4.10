@@ -1,10 +1,10 @@
 package com.example.Docker;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import java.util.List;
 public class DockerController {
     @Autowired
     UserRepository userRepository;
+
     private DockerController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -22,8 +23,8 @@ public class DockerController {
     }
 
     @PostMapping("/postUser")
-    public User postUser(@RequestBody User user){
-        return userRepository.save(user);
+    public ResponseEntity<User> postUser(@Validated @RequestBody User user){
+        return new ResponseEntity<>(userRepository.save(user), HttpStatus.OK);
     }
 
     @GetMapping("/test")
@@ -31,4 +32,3 @@ public class DockerController {
         return "test";
     }
 }
-
