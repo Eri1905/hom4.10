@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(DockerController.class)
-public class TestDockerControllerMethods {
+class TestDockerControllerMethods {
 
     @Autowired
     private MockMvc mockMvc;
