@@ -8,6 +8,6 @@ class DockerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		throw new UnsupportedOperationException("Not yet implemented");
 	}
-
 }
